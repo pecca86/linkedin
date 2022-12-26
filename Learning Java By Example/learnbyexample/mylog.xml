@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-05-15T11:31:43.043196Z</date>
+  <millis>1652614303043</millis>
+  <nanos>196000</nanos>
+  <sequence>0</sequence>
+  <logger>com.pekka.database</logger>
+  <level>INFO</level>
+  <class>com.pekka.database.DatabaseTest</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>About to test the connection</message>
+</record>
+<record>
+  <date>2022-05-15T11:31:43.329048Z</date>
+  <millis>1652614303329</millis>
+  <nanos>48000</nanos>
+  <sequence>1</sequence>
+  <logger>com.pekka.database</logger>
+  <level>INFO</level>
+  <class>com.pekka.database.DatabaseTest</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Finished testing the connection</message>
+</record>
+</log>

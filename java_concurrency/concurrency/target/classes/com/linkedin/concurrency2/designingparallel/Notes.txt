@@ -1,0 +1,49 @@
+## How to design a parallel program
+
+1. PARTITIONING
+    - Breaking down the problem into smaller independent tasks
+        * Domain / Data Decomposition
+            - Divides the domain / data into smaller individual (often similar sized) partitions.
+            - Then associate the computations to be performed with given partition.
+        * Functional Decomposition
+            - Divide all the computation a program need to do into separate tasks.
+    - Often Domain and functional are used complementary.
+
+2. COMMUNICATION
+    - Figuring out how to coordinate, execute and share data to the tasks.
+    - Is not always necessary.
+    - Point-to-point communication:
+        * One thread acts as a sender, and another thread that needs the information, as a receiver/consumer.
+    - Collective communication:
+        * One task that BROADCASTS the information to several threads.
+        * SCATTERS pieces of data out to each different thread to process.
+        * The thread can then gather the result into a single variable.
+    - Need to take into account if the communication is SYNCHRONOUS or ASYNCHRONOUS:
+        * Synchronous:
+            - Blocking.
+            - Can lead to tasks waiting a lot.
+        * Asynchronous:
+            - Non-blocking.
+            - Can do other work while waiting.
+    - Increases overhead
+    - Latency -> time to send message A to B, impacts the communication.
+    - Bandwidth -> Amount of data / second
+
+3. AGGLOMERATION
+    - Optimizing the code to perform at is best on a given concrete system
+    - Granularity = computation / communication
+    - One can choose fine-or Coarse-grained granularity
+        * Fine grained = Split into smaller jobs, which can utilize more processors
+        * Coarse grained = Larger jobs, less communication overhead
+
+4. MAPPING
+    - This is the step where we specify where each task will execute, given it is run on a multiple processors
+    - This does not apply to systems with automatic scheduling, aka. Personal computer.
+    - This applies for distributed systems
+    - The goal of mapping is to minimize the total execution time:
+        * Place tasks that execute concurrently on different processors
+        * Place tasks that communicate frequently on the same processor
+
+# ADDITIONAL
+    - Java Remote Method Invocation
+        * For handling processes on client and servers distributed among different computers.
